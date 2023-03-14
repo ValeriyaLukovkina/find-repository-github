@@ -1,0 +1,230 @@
+@font-face {
+    font-family: 'OpenSans';
+    src: url('./assests/font/OpenSans-Light.ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('./assests/font/OpenSans-LightItalic.ttf');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('./assests/font/OpenSans-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('./assests/font/OpenSans-RegularItalic.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('./assests/font/OpenSans-Semibold.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('./assests/font/OpenSans-SemiboldItalic.ttf');
+    font-weight: 600;
+    font-style: italic;
+}
+
+$color-bgc: #f0f1f3;
+$dark-blue: #0d3d47;
+$light-blue: #afcfce;
+$red: #ff3347;
+$color-txt: #3F4254;
+$white: #fff;
+
+$margin: 10px;
+
+$size-txt: 14px;
+$size-title: 36px;
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'OpenSans';
+    font-size: $size-txt;
+    font-weight: 400;
+    font-style: normal;
+    color: $color-txt;
+    cursor: default;
+}
+
+body {
+    background-color: $color-bgc;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: $size-title;
+    text-align: center;
+    margin-top: $margin * 2;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    margin: $margin * 2;
+    align-items: center;
+    position: relative;
+
+    &-name {
+        padding: 5px;
+        margin-right: $margin * 2;
+        border: 1px solid $dark-blue;
+        border-radius: 5px;
+        outline: none;
+        color: $color-txt;
+        cursor: pointer;
+        transition: all .5s;
+
+        &:hover {
+            border: 1px solid $light-blue;
+        }
+
+        &:focus {
+            outline: none;
+            border: 1px solid $light-blue; 
+        }
+
+        &_wrp {
+            position: relative;
+        }
+
+        &_error {
+            border: $red 1px solid;
+        }
+    }
+
+    &-btn {
+        background-color: $light-blue;
+        border: none;
+        padding: 5px 10px;
+        color: $color-txt;
+        border: 1px solid $dark-blue;
+        border-radius: 5px;
+        transition: all .5s;
+        cursor: pointer;
+
+        &:hover {
+            color: $light-blue;
+            background-color: $dark-blue;
+            // opacity: 0.7;
+        }
+    }
+
+    &-error {
+        position: absolute;
+        visibility: hidden;
+        bottom: -15px;
+        max-height: 20px;
+        left: 0px;
+
+        &_txt {
+            color: $red;
+            font-size: 12px;
+        }
+
+        &_show {
+            visibility: visible;
+        }
+    }
+}
+
+.repositories {
+    margin: 30px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 35px 10px;
+    justify-items: center;
+
+    @media (max-width: 960px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 650px) {
+        grid-template-columns: 1fr;
+    }
+
+    &-repo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: max-content;
+        background-color: $white;
+        width: 300px;
+        border-radius: 5px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 8px 8px 13px -3px rgba(13, 61, 71, 1);
+        transition: all .5s;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        &_wrp {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &_title {
+            font-size: 28px;
+            margin-bottom: $margin * 2;
+            text-transform: uppercase;
+            word-break: break-all;
+        }
+
+        &_info {
+            margin-left: $margin * 2;
+
+            &_block {
+                margin: $margin 0;
+            }
+
+            &_reponame_link {
+                text-decoration: none;
+                cursor: pointer;
+
+                &:hover {
+                text-decoration: underline;
+                }
+            }
+        }
+
+        &_useravatar {
+            width: 100px;
+            height: 100px;
+            border: 1px solid $dark-blue;
+            border-radius: 50%;
+        }
+    }
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-bgc;
+    opacity: 0.5;
+}

@@ -1,0 +1,196 @@
+@font-face {
+  font-family: "OpenSans";
+  src: url("./assests/font/OpenSans-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url("./assests/font/OpenSans-LightItalic.ttf");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url("./assests/font/OpenSans-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url("./assests/font/OpenSans-RegularItalic.ttf");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url("./assests/font/OpenSans-Semibold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url("./assests/font/OpenSans-SemiboldItalic.ttf");
+  font-weight: 600;
+  font-style: italic;
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "OpenSans";
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  color: #3F4254;
+  cursor: default;
+}
+
+body {
+  background-color: #f0f1f3;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 36px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  align-items: center;
+  position: relative;
+}
+.form-name {
+  padding: 5px;
+  margin-right: 20px;
+  border: 1px solid #0d3d47;
+  border-radius: 5px;
+  outline: none;
+  color: #3F4254;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.form-name:hover {
+  border: 1px solid #afcfce;
+}
+.form-name:focus {
+  outline: none;
+  border: 1px solid #afcfce;
+}
+.form-name_wrp {
+  position: relative;
+}
+.form-name_error {
+  border: #ff3347 1px solid;
+}
+.form-btn {
+  background-color: #afcfce;
+  border: none;
+  padding: 5px 10px;
+  color: #3F4254;
+  border: 1px solid #0d3d47;
+  border-radius: 5px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.form-btn:hover {
+  color: #afcfce;
+  background-color: #0d3d47;
+}
+.form-error {
+  position: absolute;
+  visibility: hidden;
+  bottom: -15px;
+  max-height: 20px;
+  left: 0px;
+}
+.form-error_txt {
+  color: #ff3347;
+  font-size: 12px;
+}
+.form-error_show {
+  visibility: visible;
+}
+
+.repositories {
+  margin: 30px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 35px 10px;
+  justify-items: center;
+}
+@media (max-width: 960px) {
+  .repositories {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 650px) {
+  .repositories {
+    grid-template-columns: 1fr;
+  }
+}
+.repositories-repo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: #fff;
+  width: 300px;
+  border-radius: 5px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 8px 8px 13px -3px rgb(13, 61, 71);
+  transition: all 0.5s;
+}
+.repositories-repo:hover {
+  transform: scale(1.05);
+}
+.repositories-repo_wrp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.repositories-repo_title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  word-break: break-all;
+}
+.repositories-repo_info {
+  margin-left: 20px;
+}
+.repositories-repo_info_block {
+  margin: 10px 0;
+}
+.repositories-repo_info_reponame_link {
+  text-decoration: none;
+  cursor: pointer;
+}
+.repositories-repo_info_reponame_link:hover {
+  text-decoration: underline;
+}
+.repositories-repo_useravatar {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #0d3d47;
+  border-radius: 50%;
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f1f3;
+  opacity: 0.5;
+}/*# sourceMappingURL=style.css.map */
