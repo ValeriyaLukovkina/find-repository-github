@@ -53,7 +53,6 @@ const createLoading = () => {
 const deleteLoading = () => {
     const loading = document.querySelector('.loading');
     document.body.removeChild(loading)
-
 }
 
 form.onsubmit = async (event) => {
@@ -62,7 +61,7 @@ form.onsubmit = async (event) => {
     const formTxt = document.querySelector('#form-name');
     const error = document.querySelector('.form-error');
 
-    if(formTxt.value.length < 3) {
+    if (formTxt.value.length < 3) {
         const errorBody = document.querySelector('.form-error_txt');
         errorBody.innerHTML = 'Мин. длина 3 символа'
         error.classList.add('form-error_show');
@@ -79,7 +78,7 @@ form.onsubmit = async (event) => {
         const wrp = document.querySelector('.repositories');
         const data = await response.json();
         wrp.innerHTML = '';
-        
+
 
         if (data.items.length == 0) {
             localStorage.setItem('findRepo', JSON.stringify([]));
@@ -94,8 +93,6 @@ form.onsubmit = async (event) => {
     } else {
         throw 'не найдено';
     }
-
-    // formTxt.value = '';
 
     deleteLoading();
     document.querySelector('.form-btn').removeAttribute('disabled');
@@ -114,15 +111,14 @@ const initialized = () => {
     createLoading();
 
     const wrp = document.querySelector('.repositories');
-    listRepo = [...JSON.parse(localStorage.getItem('findRepo'))];
-    if (listRepo.length == 0) {
+    listRepo = JSON.parse(localStorage.getItem('findRepo'));
+    if (listRepo && listRepo.length == 0) {
         const empty = createElem(wrp, 'p', 'Ничего не найдено', { class: `repositories_empty` });
-    } else {
+    } else if (listRepo) {
         listRepo.map(item => {
             createRepo(item)
         })
     }
-
     deleteLoading();
 }
 
